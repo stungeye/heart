@@ -87,23 +87,24 @@ function drawMathOverlay(s) {
   fill(340, 60, 20);
   textFont("Georgia");
   textAlign(CENTER, CENTER);
+  let dy = s * 1.8;
 
   textStyle(ITALIC);
   textSize(s * 1.4);
-  text("Heart Curve", 0, -s * 5 + 40);
+  text("Heart Curve", 0, -s * 5 + dy);
 
   textStyle(NORMAL);
-  textSize(s * 0.9);
-  text("x = 16 sin³(t)", 0, -s * 2.8 + 40);
-  text("y = 13cos(t) − 5cos(2t) − 2cos(3t) − cos(4t)", 0, -s * 0.8 + 40);
+  textSize(s);
+  text("x = 16 sin³(t)", 0, -s * 2.8 + dy);
+  text("y = 13cos(t) − 5cos(2t) − 2cos(3t) − cos(4t)", 0, -s * 0.8 + dy);
 
   textStyle(ITALIC);
-  textSize(s * 1.2);
-  text("Heartbeat", 0, s * 1.6 + 40);
+  textSize(s * 1.3);
+  text("Heartbeat", 0, s * 1.6 + dy);
 
   textStyle(NORMAL);
-  textSize(s * 0.9);
-  text("s(t) = 1 + 0.06 sin(ωt) + 0.03 sin(2ωt)", 0, s * 3.6 + 40);
+  textSize(s);
+  text("s(t) = 1 + 0.06 sin(ωt) + 0.03 sin(2ωt)", 0, s * 3.6 + dy);
 }
 
 function draw() {
@@ -120,4 +121,8 @@ function draw() {
   updateParticles(max(0, vel) * 40);
   drawFeatheredHeart(s);
   drawMathOverlay(s);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
