@@ -87,23 +87,23 @@ function drawMathOverlay(s) {
   fill(340, 60, 20);
   textFont("Georgia");
   textAlign(CENTER, CENTER);
-  let dy = s * 1.8;
+  let dy = s * 1.6;
 
   textStyle(ITALIC);
   textSize(s * 1.4);
   text("Heart Curve", 0, -s * 5 + dy);
 
   textStyle(NORMAL);
-  textSize(s);
+  textSize(s * 1.1);
   text("x = 16 sin³(t)", 0, -s * 2.8 + dy);
   text("y = 13cos(t) − 5cos(2t) − 2cos(3t) − cos(4t)", 0, -s * 0.8 + dy);
 
   textStyle(ITALIC);
-  textSize(s * 1.3);
+  textSize(s * 1.4);
   text("Heartbeat", 0, s * 1.6 + dy);
 
   textStyle(NORMAL);
-  textSize(s);
+  textSize(s * 1.1);
   text("s(t) = 1 + 0.06 sin(ωt) + 0.03 sin(2ωt)", 0, s * 3.6 + dy);
 }
 
