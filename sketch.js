@@ -1,6 +1,6 @@
 // Math Heart for Valentine's Day
 // Parametric heart curve with pulsing mini-heart particles.
-// Wally Glutton stungeye.com 2024-02-14
+// Wally Glutton / stungeye.com / 2024-02-14
 // This is free and unencumbered software released into the public domain. See unlicense.org.
 
 let particles = [];
@@ -34,6 +34,7 @@ function heartbeat() {
   let f = frameCount;
   let beat = 1 + 0.06 * sin(f * 0.08) + 0.03 * sin(f * 0.16);
   let vel = 0.06 * 0.08 * cos(f * 0.08) + 0.03 * 0.16 * cos(f * 0.16);
+
   return { beat, vel };
 }
 
@@ -42,6 +43,7 @@ function spawnParticle(s) {
   let t = random(TWO_PI);
   let [x, y] = heartXY(t);
   let norm = abs(x) + abs(y) + 0.1;
+
   return {
     x: x * s,
     y: y * s,
@@ -60,6 +62,7 @@ function updateParticles(impulse) {
     p.vx += (p.x / d) * impulse;
     p.vy += (p.y / d) * impulse;
   }
+
   for (let i = particles.length - 1; i >= 0; i--) {
     let p = particles[i];
     fill(p.hue, 80, 100, p.life);
