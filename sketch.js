@@ -11,7 +11,6 @@ function setup() {
   noStroke();
 }
 
-// Heart curve point at parameter t
 function heartXY(t) {
   return [
     16 * pow(sin(t), 3),
@@ -19,7 +18,6 @@ function heartXY(t) {
   ];
 }
 
-// Draw a heart at (0,0) of given size. Step controls resolution.
 function drawHeart(sz, step = 0.2) {
   beginShape();
   for (let t = 0; t < TWO_PI; t += step) {
@@ -29,7 +27,6 @@ function drawHeart(sz, step = 0.2) {
   endShape(CLOSE);
 }
 
-// Heartbeat pulse and its velocity (derivative)
 function heartbeat() {
   let f = frameCount;
   let beat = 1 + 0.06 * sin(f * 0.08) + 0.03 * sin(f * 0.16);
@@ -38,7 +35,6 @@ function heartbeat() {
   return { beat, vel };
 }
 
-// Spawn a particle on the heart edge with outward momentum
 function spawnParticle(s) {
   let t = random(TWO_PI);
   let [x, y] = heartXY(t);
@@ -55,7 +51,6 @@ function spawnParticle(s) {
   };
 }
 
-// Apply heartbeat impulse, update motion, and cull dead particles
 function updateParticles(impulse) {
   for (let p of particles) {
     let d = sqrt(p.x * p.x + p.y * p.y) + 0.1;
@@ -77,7 +72,6 @@ function updateParticles(impulse) {
   }
 }
 
-// Feathered solid heart drawn as layered shells
 function drawFeatheredHeart(s) {
   for (let k = 5; k >= 0; k--) {
     fill(350, 85, 90, map(k, 5, 0, 8, 95));
@@ -85,7 +79,6 @@ function drawFeatheredHeart(s) {
   }
 }
 
-// Math overlay text centered on the heart
 function drawMathOverlay(s) {
   fill(340, 60, 20);
   textFont("Georgia");
